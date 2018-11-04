@@ -4,7 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Api</title>
-
+    <base href="~/"/>
+    <link rel="stylesheet" href="~/dist/styles.bundle.css"/>
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="~/css/site.css" />
@@ -38,17 +39,19 @@
         </div>
     </nav>
 
-    
-    <app-root>Loading...</app-root><app-root></app-root>
-    <partial name="_CookieConsentPartial" />
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; 2018 - Api</p>
-        </footer>
-    </div>
-
+    @RenderBody()
+    <environment include="Development">
+        <script asp-append-version="true" src="~/inline.bundle.js"></script>
+        <script asp-append-version="true" src="~/polyfills.bundle.js"></script> 
+        <script asp-append-version="true" src="~/styles.bundle.js"></script>
+        <script asp-append-version="true" src="~/vendor.bundle.js"></script> 
+        <script asp-append-version="true" src="~/main.bundle.js"></script> 
+    </environment>
+    <environment exclude="Development">
+        <script asp-append-version="true" src="~/inline.bundle.js"></script>
+        <script asp-append-version="true" src="~/polyfills.bundle.js"></script> 
+        <script asp-append-version="true" src="~/main.bundle.js"></script> 
+    </environment>
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
