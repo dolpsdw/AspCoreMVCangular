@@ -61,7 +61,7 @@ namespace Api
 
                 if (env.IsDevelopment())
                 {
-                    spa.UseAngularCliServer(npmScript: "start");
+                    spa.UseAngularCliServer(npmScript: "developers");
                 }
             });
         }
